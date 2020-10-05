@@ -17,5 +17,7 @@
         "psr-4": {
             "genrisol\\export\\": ""
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
