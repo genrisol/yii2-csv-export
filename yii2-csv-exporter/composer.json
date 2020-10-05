@@ -1,0 +1,21 @@
+{
+    "name": "genrisol/yii2-csv-exporter",
+    "description": "CSV export extension from Active Query (Yii2)",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","export csv"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "GENRI",
+            "email": "genrisol@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "~2.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "genrisol\\export\\": ""
+        }
+    }
+}
