@@ -1,6 +1,6 @@
 CSV exporter
 ============
-CSV extension for Yii2 from Query
+CSV extension from Active Query (Yii2)
 
 Installation
 ------------
@@ -32,18 +32,20 @@ Once the extension is installed, simply example to use it in your code by  :
          ->with([
             'user',
             'customer',
+            ...
          ]);
 
     $columns = [
         ['label' => 'Date&Time', 'value' => 'ins_ts'],
         ['label' => 'Type', 'value' => 'object'],
         ['label' => 'Event', 'value' => 'eventText'],
-        // value is joined table field value
+        // relation used example
         ['label' => 'Event', 'nested' => 'user', 'value' => 'username'],
+        // closure example
         ['label' => 'Message', 'value' => function ($model){
                 return $model->getBodyByModel();
             }
         ],
     ];
 
-    (new \app\helpers\export\CsvExport($query, $columns, 'histiory_'.time().'.csv'))->run();
+    (new \genrisol\export\CsvExport($query, $columns, 'histiory_'.time().'.csv'))->run();
