@@ -107,6 +107,7 @@ class Export
             }
         }
 
+        return $this;
     }
 
     /**
