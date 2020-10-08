@@ -11,5 +11,5 @@ namespace genrisol\export;
 interface IExporter
 {
     public function set(): \Generator;
-    public function run(): void;
+    public function run(string $filename): void;
 }

@@ -48,4 +48,15 @@ Once the extension is installed, simply example to use it in your code by  :
         ],
     ];
 
-    (new \genrisol\export\CsvExport($query, $columns, 'histiory_'.time().'.csv'))->run();
+    (new \genrisol\export\CsvExport())->prepare($query, $columns)->run('histiory_'.time().'.csv');
+
+    or
+
+    set Yii config for components like this
+
+    'csv' => [ 
+        'class' => '\genrisol\export\CsvExport',
+    ]
+
+    and then can use it this way
+     Yii::$app->cvs->prepare($query, $columns)->run('histiory_'.time().'.csv');

@@ -13,11 +13,6 @@ class CsvExport extends Export implements IExporter
 {
     use ExportTrait;
 
-    public function __construct(ActiveQuery $model, array $columns, string $filename)
-    {
-        $this->prepare($model, $columns, $filename);
-    }
-
     /**
      * @return Generator
      */
@@ -34,8 +29,10 @@ class CsvExport extends Export implements IExporter
     /**
      * Get data from Active Query (YII2)
      */
-    public function run(): void
+    public function run(string $filename): void
     {
+        $this->setFilename($filename);
+
         $generator = $this->set();
 
         while ($generator->valid()) {

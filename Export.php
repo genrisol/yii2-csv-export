@@ -75,14 +75,14 @@ class Export
      *           return $model->getBodyByModel();
      *      }],
      *    ];
-     *    (new \app\helpers\export\CsvExport($query, $columns, 'histiory_'.time().'.csv'))->run();
+     *    (new \app\helpers\export\CsvExport()->prepere($query, $columns)->run('histiory_'.time().'.csv');
 
      *
      * @param array | object $model
      * @param array $columns
      * @param string $filename
      */
-    protected function prepare($model, array $columns, string $filename)
+    public function prepare($model, array $columns)
     {
         $this->setModel($model);
 
@@ -107,8 +107,6 @@ class Export
             }
         }
 
-        $this->setFilename($filename);
-        $this->setContentType();
     }
 
     /**
@@ -133,12 +131,13 @@ class Export
     protected function setFilename(string $filename): void
     {
         $this->filename = $filename;
+        $this->setContentType();
     }
 
     /**
      * Set content type
      */
-    public function setContentType()
+    protected function setContentType()
     {
         preg_match('/(?:.csv|.xlsx)/i', $this->filename, $parts);
 
