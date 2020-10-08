@@ -54,7 +54,7 @@ Once the extension is installed, simply example to use it in your code by  :
 
     set Yii config for components like this
 
-    'csv' => [ 
+    'csv' => [
         'class' => '\genrisol\export\CsvExport',
     ]
 
